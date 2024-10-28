@@ -1,0 +1,88 @@
+[tool.poetry]
+name = "StarNavi TestTask"
+version = "0.1.0"
+description = ""
+authors = ["YevheniiMelnikov <evgeniy@workmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+setuptools = "^74.1.2"
+python-dotenv = "^1.0.1"
+psycopg2-binary = "^2.9"
+django = "^5.1.1"
+django-extensions = "^3.2.3"
+djangorestframework = "^3.15.2"
+djangorestframework-api-key = "^3.0.0"
+drf-yasg = "^1.21.7"
+djoser = "^2.2.3"
+django-filter = "^24.3"
+loguru = "^0.7.2"
+django-admin = "^2.0.2"
+django-cors-headers = "^4.5.0"
+redis = "3.5.3"
+google-api-python-client = "^2.0.0"
+celery = "5.2.2"
+better-profanity = "^0.7.0"
+openai = "0.28"
+
+[tool.ruff.lint.isort]
+combine-as-imports = true
+
+[tool.ruff]
+line-length = 120
+exclude = [
+  ".git",
+  ".mypy_cache",
+  ".pytest_cache",
+  ".env",
+  "env",
+  "venv",
+  ".venv",
+]
+
+[tool.black]
+line-length = 120
+target-version = ['py310']
+include = '\.pyi?$'
+exclude = '''
+(
+  /(
+      \.git
+    | \.mypy_cache
+    | \.pytest_cache
+    | \.env
+    | env
+    | venv
+    | .venv
+  )
+)
+'''
+
+[tool.mypy]
+follow_imports = "skip"
+strict_optional = false
+check_untyped_defs = false
+allow_untyped_globals = true
+ignore_missing_imports = true
+disallow_untyped_calls = true
+warn_unused_ignores = true
+warn_unreachable = true
+exclude = '''
+(
+  \.git
+| \.mypy_cache
+| \.pytest_cache
+| \.env
+| env
+| .venv
+| venv
+)
+'''
+
+[tool.poetry.group.dev.dependencies]
+black = "^24.8.0"
+ruff = "^0.6.3"
+mypy = "^1.11.2"
+mypy-extensions = "^1.0.0"
+pytest = "^7.2.0"
